@@ -2,65 +2,51 @@
 # Español- Spanish
 # BILAN NATURALS – Análisis de Clientes y Predicción de Recompra
 
-## Descripción
-Proyecto de análisis de datos para empresa de fabricacion y venta de alimentacion para mascotas,
-con el objetivo de segmentar clientes, identificar inactivos y predecir probabilidad de recompra mediante Machine Learning.
+## Descripción General
+Este proyecto fue desarrollado para una empresa de fabricación y venta de alimentos para mascotas. Utiliza datos históricos de ventas para apoyar la toma de decisiones comerciales mediante segmentación de clientes, identificación de inactivos y predicción de probabilidad de recompra. Se incluyen dos cuadernos Jupyter que implementan los análisis clave:
 
-## Tecnologías utilizadas
-- Python (pandas, numpy, datetime, scikit-learn)
+- **`Recuperar_Clientes.ipynb`** – identifica clientes que no han comprado en los últimos 25–366 días, generando un listado para campañas de recuperación.
+- **`Prediccion_Clientes_prox_a_comprar.ipynb`** – calcula un score dinámico de recompra y estima qué clientes están más próximos a realizar una nueva compra, basado en su frecuencia y antigüedad.
+
+Ambos cuadernos están diseñados para ejecutarse en Google Colab (o de forma local) y producen archivos Excel que pueden ser utilizados directamente por equipos comerciales.
+
+## Cómo Ejecutar los Cuadernos
+
+1. Sube el archivo Excel de ventas a tu Google Drive.
+2. Abre el cuaderno en Google Colab.
+3. Monta tu Drive y actualiza la ruta del archivo si es necesario.
+4. Ejecuta todas las celdas – el cuaderno generará y descargará automáticamente el archivo Excel.
+
+
+## Tecnologías Utilizadas
+- Python (pandas, numpy, datetime)
 - Google Colab / Jupyter Notebook
-- GitHub para control de versiones
+- xlsxwriter (para exportar a Excel)
+- Git / GitHub
 
-## Estructura del proyecto
-- `data/`: datos de muestra en formato CSV.
-- `notebooks/scripts`: análisis exploratorio y desarrollo del modelo, ETL, entrenamiento y segmentación.
-- `outputs/`: resultados generados (segmentaciones, métricas)
-
-## Metodología
-1. **Extracción y limpieza** de datos comerciales con pandas.
-2. **Análisis exploratorio** para entender comportamiento de compra.
-3. **Ingeniería de características** (frecuencia, antigüedad, ticket promedio).
-4. **Entrenamiento de modelo de clasificación** (Random Forest) para predecir recompra.
-5. **Segmentación de clientes** (activos, inactivos, alto potencial).
-
-
+## -----------------------------------------------------------------------------------------
 
 # Ingles - English
 
 # BILAN NATURALS – Customer Analytics & Repurchase Prediction
 
-## Description
-Data analysis project for a commercial business, focused on customer segmentation, 
-identification of inactive clients, and prediction of repurchase probability using Machine Learning. 
-The project includes ETL processes, exploratory analysis, and automated reporting to support data-driven commercial strategies.
+## Project Overview
+This project was developed for a pet food manufacturing and sales company. It uses historical sales data to support commercial decision‑making through customer segmentation, identification of inactive clients, and prediction of repurchase probability. Two Jupyter notebooks implement the core analytics:
+
+- **`Recuperar_Clientes.ipynb`** – identifies customers who have not purchased in the last 25–366 days, generating a targeted list for recovery campaigns.
+- **`Prediccion_Clientes_prox_a_comprar.ipynb`** – builds a dynamic repurchase score and estimates which customers are most likely to buy soon, based on their purchase frequency and recency.
+
+Both notebooks are designed to be run in Google Colab (or locally) and produce Excel files that can be directly used by commercial teams.
+
+## How to Run the Notebooks
+
+1. Upload the sales Excel file to your Google Drive.
+2. Open the notebook in Google Colab.
+3. Mount your Drive and update the file path if necessary.
+4. Run all cells – the notebook will generate and download the Excel output automatically.
+
 
 ## Technologies Used
 - Python (pandas, numpy, datetime, scikit-learn)
 - Google Colab / Jupyter Notebook
 - Git / GitHub
-
-## Project Structure
-- `data/`: Sample or synthetic data.
-- notebooks - scripts: Jupyter notebooks with exploratory analysis and model development,for ETL, model training, and segmentation.
- 
-  - "Prediccion Clientes prox a compar.ipynb": 
-  - "Recuperar_Clientes.ipynb": **Script to extract clients with 25–366 days without purchase** (used for recovery campaigns).
-- `outputs/`: Results (segmented client lists, metrics, charts).
-- `README.md`: Project overview.
-
-## Methodology
-
-### 1. ETL & Exploratory Data Analysis
-- Loaded commercial data from Excel using pandas.
-- Cleaned and normalized data (date format, missing values, column names).
-- Performed exploratory analysis to understand purchase frequency, recency, and monetary value.
-
-### 2. Customer Recovery Script (`Recuperar_Clientes.ipynb`)
-- Calculates days since each client’s last purchase.
-- Filters clients with delta between **25 and 366 days**.
-- Exports a list of these clients to an Excel file named with the date range.
-- Runs automatically; can be scheduled to generate lists for commercial teams.
-
-
-
-
