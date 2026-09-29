@@ -6,14 +6,14 @@
 
 Este proyecto fue desarrollado para una empresa de fabricación y venta de alimentos para mascotas. Usa datos históricos de ventas para apoyar decisiones comerciales mediante segmentación de clientes, identificación de clientes inactivos y estimación de probabilidad de recompra.
 
-Se incluyen dos cuadernos Jupyter que implementan los análisis clave:
+Se incluyen 2 Jupyter Notebooks que implementan los análisis clave:
 
 - **`Recuperar_Clientes.ipynb`** – identifica clientes que no han comprado en los últimos 25–366 días, generando un listado para campañas de recuperación.
 - **`Prediccion_Clientes_prox_a_comprar.ipynb`** – calcula un score dinámico de recompra (basado en frecuencia histórica, recencia y valor promedio de compra) y estima qué clientes están más próximos a realizar una nueva compra.
 
 Ambos cuadernos están diseñados para ejecutarse en Google Colab (o localmente) y producen archivos Excel listos para uso directo del equipo comercial.
 
-## Contexto y estado actual del proyecto
+## Contexto y estado actual
 
 Este proyecto nació para reemplazar una macro de Excel que la empresa usaba para este mismo análisis y que dejó de funcionar. La lógica de esa macro fue migrada a Python, y de paso se amplió: se agregó un score de recompra ponderado por frecuencia, variabilidad de gasto y valor esperado, algo que la macro original no calculaba.
 
@@ -21,14 +21,14 @@ Posteriormente, la macro de Excel fue reparada y la empresa retomó su uso por c
 
 > **Nota técnica:** el "score de recompra" actual es un modelo basado en reglas estadísticas (media y desviación estándar de frecuencia de compra), no un modelo de machine learning entrenado. Es un enfoque válido y explicable, pero se documenta así para evitar expectativas incorrectas.
 
-## Cómo Ejecutar los Cuadernos
+## Cómo Ejecutar Notebooks
 
 1. Sube el archivo Excel de ventas a tu Google Drive.
 2. Abre el cuaderno en Google Colab.
-3. Monta tu Drive y actualiza la ruta del archivo (`archivo = "..."`) si es necesario.
-4. Ejecuta todas las celdas – el cuaderno generará y descargará automáticamente el archivo Excel de salida.
+3. Monta tu Drive y actualiza la ruta del archivo (`archivo = "..."`).
+4. Ejecuta todas las celdas, el cuaderno generará y descargará automáticamente el archivo Excel de salida.
 
-## Explicación detallada de cada Notebook
+## Explicación de Notebooks
 
 ### `Recuperar_Clientes.ipynb`
 
@@ -64,27 +64,27 @@ Calcula un score de priorización combinando *cuándo* es probable que un client
 
 **Output**: `CLIENTES PROX A COMPRAR [fecha de ejecución].xlsx`
 
-## Metodología (resumen)
+## Metodología
 
 - Se consolidan las compras por cliente y fecha.
 - Se calcula la frecuencia promedio de compra por cliente (media y desviación estándar entre compras).
 - Se estima la próxima fecha de compra esperada y un score de urgencia (`score_recompra`).
 - Se combina con el valor histórico de compra para priorizar clientes por impacto económico esperado (`score_final`).
 
-## Limitaciones conocidas
+## Limitaciones
 
 - El score no ha sido validado aún con backtesting formal (comparar predicciones contra compras reales posteriores).
 - Sensible a calidad de datos: nombres de cliente inconsistentes (mayúsculas, espacios, duplicados) pueden fragmentar el historial de un mismo cliente.
 - Rutas de archivo y nombre de hoja están hardcodeados; requiere ajuste manual si cambia la estructura del Excel fuente.
 
-## Tecnologías Utilizadas
+## Tecnologías
 
 - Python (pandas, numpy, datetime)
 - Google Colab / Jupyter Notebook
 - xlsxwriter (exportación a Excel)
 - Git / GitHub
 
-## Próximos pasos (roadmap)
+## Próximos pasos
 
 - [ ] Backtesting histórico para validar precisión del score.
 - [ ] Migrar de notebook a script parametrizado (`.py` + config).
@@ -95,7 +95,7 @@ Calcula un score de priorización combinando *cuándo* es probable que un client
 <a name="english"></a>
 ## English
 
-## Project Overview
+## Overview
 
 This project was developed for a pet food manufacturing and sales company. It uses historical sales data to support commercial decision-making through customer segmentation, identification of inactive customers, and repurchase probability estimation.
 
@@ -112,29 +112,29 @@ This project was originally built to replace an Excel macro the company used for
 
 The Excel macro was later fixed, and the company resumed using it for operational continuity. This repository remains a functional, documented solution and case study, ready to be picked back up if the analysis needs to scale (e.g., if the macro fails again, or something more robust than Excel is required).
 
-> **Technical honesty note:** the current "repurchase score" is a rules-based statistical model (mean and standard deviation of purchase frequency), not a trained machine learning model. It's a valid, explainable approach, documented as such to avoid overstating it.
+> **Technical note:** the current "repurchase score" is a rules-based statistical model (mean and standard deviation of purchase frequency), not a trained machine learning model. It's a valid, explainable approach, documented as such to avoid overstating it.
 
-## How to Run the Notebooks
+## How to run Notebooks
 
 1. Upload the sales Excel file to your Google Drive.
 2. Open the notebook in Google Colab.
 3. Mount your Drive and update the file path (`archivo = "..."`) if necessary.
 4. Run all cells – the notebook will generate and download the output Excel file automatically.
 
-## Methodology (summary)
+## Methodology
 
 - Purchases are consolidated by customer and date.
 - Average purchase frequency per customer is computed (mean and standard deviation between purchases).
 - The expected next purchase date and an urgency score (`score_recompra`) are estimated.
 - This is combined with historical purchase value to prioritize customers by expected economic impact (`score_final`).
 
-## Known Limitations
+## Limitations
 
 - The score hasn't yet been validated with formal backtesting (comparing predictions against actual subsequent purchases).
 - Sensitive to data quality: inconsistent customer names (casing, whitespace, duplicates) can fragment a single customer's history.
 - File paths and sheet names are hardcoded; manual adjustment is needed if the source Excel structure changes.
 
-## Technologies Used
+## Technologies
 
 - Python (pandas, numpy, datetime)
 - Google Colab / Jupyter Notebook
